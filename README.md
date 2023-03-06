@@ -1,20 +1,20 @@
-package com.knoldus.beam;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import javax.swing.text.Document;
-import org.apache.beam.sdk.Pipeline;
-import org.apache.beam.sdk.io.TextIO;
-import org.apache.beam.sdk.transforms.DoFn;
-import org.apache.beam.sdk.transforms.ParDo;
-import org.apache.beam.sdk.values.PCollection;
+## Beam-Integration-with-MongoDB
+#### Description:: "In this template we will integrating Beam with mongoDB."
+
+* Clone the Repo: 
+````
+git clone git@github.com:knoldus/Beam-Integration-with-MongoDB-master.git
+````
+>> main class 
+> >
+* follow path src/main/java/com.knoldus.beam/MongoDBExample
 
 public class MongoDBExample {
-    public static void main(String[] args) {
-        Pipeline p = Pipeline.create();
-        PCollection<String> pInput = p.apply(TextIO.read().from("shashikant.csv"));
-        PCollection<Document> pDocument = pInput.apply(ParDo.of(new DoFn<String, Document>() {
+public static void main(String[] args) {
+Pipeline p = Pipeline.create();
+PCollection<String> pInput = p.apply(TextIO.read().from("shashikant.csv"));
+PCollection<Document> pDocument = pInput.apply(ParDo.of(new DoFn<String, Document>() {
 
             @ProcessElement
             public void processElement(ProcessContext c){
